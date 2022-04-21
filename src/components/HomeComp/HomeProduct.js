@@ -2,28 +2,32 @@ import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Product from "./Product";
 import { Dimensions } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeProduct = () => {
+  const navigation = useNavigation();
+
   const windowHeight = Dimensions.get("window").height;
+
   const [data, setData] = useState([]);
+
   useEffect(() => {
     fetchProduct();
   }, []);
+
   const fetchProduct = () => {
-    // const productData = await fetch("https://fakestoreapi.com/products")
-    //   .then((res) => res.json())
-    // setData(productData.data);
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((data) => setData(data));
   }
+
   return (
     <View style={styles.container}>
       {data.length > 0 ? (
         <View>
           {data.map((item, index) => (
             <Product
-              key={index}
+              key={index+1}
               id={item.id}
               title={item.title}
               price={item.price}

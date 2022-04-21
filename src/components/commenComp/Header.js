@@ -15,13 +15,13 @@ const Header = () => {
         <TouchableOpacity style={{ marginHorizontal: 10 }}>
           <Text style={styles.cartText}>11+</Text>
           <Image
-            source={require("../assets/shopping-cart.png")}
+            source={require("../../../assets/shopping-cart.png")}
             style={{ resizeMode: "contain", width: 30, height: 30 }}
           />
         </TouchableOpacity>
         <TouchableOpacity style={{ marginHorizontal: 5 }}>
           <Image
-            source={require("../assets/account.png")}
+            source={require("../../../assets/account.png")}
             style={{ resizeMode: "contain", width: 35, height: 35 }}
           />
         </TouchableOpacity>

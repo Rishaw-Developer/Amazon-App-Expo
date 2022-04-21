@@ -18,7 +18,7 @@ const HomeSearch = () => {
       />
       <Pressable style={styles.button}>
         <Image
-          source={require("../assets/search.png")}
+          source={require("../../../assets/search.png")}
           style={{ width: 20, height: 20, resizeMode: "contain" }}
         />
       </Pressable>

@@ -1,16 +1,29 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Image,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 
 const Product = (props) => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() => navigation.navigate("Product", { id: props.id })}
+    >
       <Image source={{ uri: `${props?.image}` }} style={styles.productImage} />
-      <Text style={{marginTop: 10}}>{props?.title}</Text>
-      <Text style={{color: "green", fontWeight: "bold", marginVertical: 5}}>{`$${props?.price}`}</Text>
+      <Text style={{ marginTop: 10 }}>{props?.title}</Text>
+      <Text
+        style={{ color: "green", fontWeight: "bold", marginVertical: 5 }}
+      >{`$${props?.price}`}</Text>
       <TouchableOpacity style={styles.addToCart}>
         <Text style={styles.addToCartText}>Add To Cart</Text>
       </TouchableOpacity>
-    </View>
+    </Pressable>
   );
 };
 
@@ -25,7 +38,7 @@ const styles = StyleSheet.create({
     elevation: 3,
     marginVertical: 5,
     padding: 10,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 10,
   },
   productImage: {
@@ -43,6 +56,6 @@ const styles = StyleSheet.create({
   addToCartText: {
     fontWeight: "bold",
     color: "black",
-    fontSize: 15
-  }
+    fontSize: 15,
+  },
 });
